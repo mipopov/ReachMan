@@ -39,4 +39,9 @@ class MainCoordinator: Coordinator {
         resultsScreen.coordinator = self
         navigationController.pushViewController(resultsScreen, animated: true)
     }
+    func showSettings() {
+        let settingScreen = SettingsViewController.instantiate()
+        settingScreen.coordinator = self
+        navigationController.pushViewController(settingScreen, animated: true)
+    }
 }
