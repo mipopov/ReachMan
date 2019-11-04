@@ -8,23 +8,41 @@
 
 import UIKit
 
-class AddQuestionViewController: UIViewController {
+class AddQuestionViewController: UIViewController, Storyboarded {
 
+    @IBOutlet var addQuestionsTableView: UITableView!
+    var numberOfQuestions = 1
+    
+    weak var coordinator: MainCoordinator?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        addQuestionsTableView.delegate = self
+        addQuestionsTableView.dataSource = self
+        coordinator?.navigationController.navigationBar.isHidden = false
+    }
+    @IBAction func addMoreQuestionsButton(_ sender: Any) {
+        numberOfQuestions += 1
+        self.addQuestionsTableView.reloadData()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addAllQuestionsInGame(_ sender: Any) {
     }
-    */
+    
+}
 
+extension AddQuestionViewController: UITableViewDelegate{
+    
+}
+
+extension AddQuestionViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return numberOfQuestions
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddQuestionCell", for: indexPath) as? AddQuestionCell else {fatalError("error in dequeued AddQuestionCell")}
+        return cell
+    }
+    
+    
 }

@@ -12,11 +12,6 @@ struct Question {
     let questionText: String
     let answers: Answers
     let questionNumber: Int
-    var fiftyFifty: Bool
-    var peopleHelp: Bool
-    var tryToError: Bool
-    var callToFriend: Bool
-    let countOfMoney: Int
 }
 
 struct Answers {

@@ -21,10 +21,12 @@ class FirstAnimationViewController: UIViewController {
         setupFrames()
         animationTransition()
     }
+    
     func setupFrames() {
         animationFristScreen.frame = self.view.frame
         animationFristScreen.image = UIImage(named: "reachMan")
     }
+    
     func animationTransition() {
         self.animationFristScreen.alpha = 0
         UIView.animate(withDuration: 3, animations: {

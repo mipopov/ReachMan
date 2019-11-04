@@ -22,7 +22,6 @@ class ViewController: UIViewController,Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.gameDelegate = self
-        coordinator?.navigationController.navigationBar.isHidden = true
     }
     override func viewWillAppear(_ animated: Bool) {
         coordinator?.navigationController.navigationBar.isHidden = true
@@ -36,8 +35,10 @@ class ViewController: UIViewController,Storyboarded {
     }
     
     @IBAction func settingPress(_ sender: Any) {
+        coordinator?.showSettings()
     }
     @IBAction func addQuestionPress(_ sender: Any) {
+        coordinator?.addQuestion()
     }
 }
 

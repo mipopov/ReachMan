@@ -17,6 +17,16 @@
 		941867D12360364C000EEB7E /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941867CF2360364C000EEB7E /* Storyboarded.swift */; };
 		941867D22360364C000EEB7E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941867D02360364C000EEB7E /* Coordinator.swift */; };
 		941867D423603958000EEB7E /* FirstAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941867D323603958000EEB7E /* FirstAnimationViewController.swift */; };
+		947CC9B9236EAF4100BAE475 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947CC9B8236EAF4100BAE475 /* Observable.swift */; };
+		9492C6ED236C379800C4A735 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9492C6EC236C379800C4A735 /* SettingsViewController.swift */; };
+		9492C6EF236C3B2800C4A735 /* GameDifficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9492C6EE236C3B2800C4A735 /* GameDifficulty.swift */; };
+		9492C6F4236C3E9E00C4A735 /* CreateQuestionArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9492C6F3236C3E9E00C4A735 /* CreateQuestionArray.swift */; };
+		9492C6F6236C3EE000C4A735 /* ConsistentlyQuestionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9492C6F5236C3EE000C4A735 /* ConsistentlyQuestionStrategy.swift */; };
+		9492C6F9236C3FAB00C4A735 /* ScatterQuestionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9492C6F8236C3FAB00C4A735 /* ScatterQuestionStrategy.swift */; };
+		94A21151236F3A920091E6CC /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A21150236F3A920091E6CC /* Builder.swift */; };
+		94A21153236F635C0091E6CC /* FacadeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A21152236F635C0091E6CC /* FacadeGame.swift */; };
+		94ACB1CB236ED99500A9D929 /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ACB1CA236ED99500A9D929 /* AddQuestionViewController.swift */; };
+		94ACB1CD236EDC1300A9D929 /* AddQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ACB1CC236EDC1300A9D929 /* AddQuestionCell.swift */; };
 		94DD761E235CEF8D0052AB19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DD761D235CEF8D0052AB19 /* AppDelegate.swift */; };
 		94DD7620235CEF8D0052AB19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DD761F235CEF8D0052AB19 /* SceneDelegate.swift */; };
 		94DD7622235CEF8D0052AB19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DD7621235CEF8D0052AB19 /* ViewController.swift */; };
@@ -38,6 +48,16 @@
 		941867CF2360364C000EEB7E /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		941867D02360364C000EEB7E /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		941867D323603958000EEB7E /* FirstAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAnimationViewController.swift; sourceTree = "<group>"; };
+		947CC9B8236EAF4100BAE475 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		9492C6EC236C379800C4A735 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9492C6EE236C3B2800C4A735 /* GameDifficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDifficulty.swift; sourceTree = "<group>"; };
+		9492C6F3236C3E9E00C4A735 /* CreateQuestionArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQuestionArray.swift; sourceTree = "<group>"; };
+		9492C6F5236C3EE000C4A735 /* ConsistentlyQuestionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsistentlyQuestionStrategy.swift; sourceTree = "<group>"; };
+		9492C6F8236C3FAB00C4A735 /* ScatterQuestionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatterQuestionStrategy.swift; sourceTree = "<group>"; };
+		94A21150236F3A920091E6CC /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		94A21152236F635C0091E6CC /* FacadeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacadeGame.swift; sourceTree = "<group>"; };
+		94ACB1CA236ED99500A9D929 /* AddQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
+		94ACB1CC236EDC1300A9D929 /* AddQuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionCell.swift; sourceTree = "<group>"; };
 		94DD761A235CEF8D0052AB19 /* ReachMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReachMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94DD761D235CEF8D0052AB19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94DD761F235CEF8D0052AB19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +109,34 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		9492C6F0236C3DA800C4A735 /* GameStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				9492C6F3236C3E9E00C4A735 /* CreateQuestionArray.swift */,
+				9492C6F5236C3EE000C4A735 /* ConsistentlyQuestionStrategy.swift */,
+				9492C6F8236C3FAB00C4A735 /* ScatterQuestionStrategy.swift */,
+			);
+			path = GameStrategy;
+			sourceTree = "<group>";
+		};
+		9492C6F7236C3F7200C4A735 /* Difficulty */ = {
+			isa = PBXGroup;
+			children = (
+				9492C6EE236C3B2800C4A735 /* GameDifficulty.swift */,
+				9492C6F0236C3DA800C4A735 /* GameStrategy */,
+			);
+			path = Difficulty;
+			sourceTree = "<group>";
+		};
+		94ACB1CE236EDC1F00A9D929 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9404115C235D759300311D5F /* ResultCell.swift */,
+				94ACB1CC236EDC1300A9D929 /* AddQuestionCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		94DD7611235CEF8D0052AB19 = {
 			isa = PBXGroup;
 			children = (
@@ -108,14 +156,18 @@
 		94DD761C235CEF8D0052AB19 /* ReachMan */ = {
 			isa = PBXGroup;
 			children = (
+				947CC9B8236EAF4100BAE475 /* Observable.swift */,
 				94DD761D235CEF8D0052AB19 /* AppDelegate.swift */,
 				94DD761F235CEF8D0052AB19 /* SceneDelegate.swift */,
-				941867CE2360364C000EEB7E /* Protocols */,
+				94EB92D12370A47D00C7C91E /* BuilderGame */,
+				94EB92D02370A46A00C7C91E /* GameFacade */,
+				9492C6F7236C3F7200C4A735 /* Difficulty */,
 				941867CB2360363D000EEB7E /* Coordinators */,
+				941867CE2360364C000EEB7E /* Protocols */,
 				9404115B235D755300311D5F /* Singleton&GameSession */,
 				94DD7623235CEF8D0052AB19 /* Main.storyboard */,
 				94DD7631235CF15C0052AB19 /* Question.swift */,
-				9404115C235D759300311D5F /* ResultCell.swift */,
+				94ACB1CE236EDC1F00A9D929 /* Cell */,
 				94DD7635235CF9000052AB19 /* Controllers */,
 				94DD7626235CEF950052AB19 /* Assets.xcassets */,
 				94DD7628235CEF950052AB19 /* LaunchScreen.storyboard */,
@@ -128,11 +180,29 @@
 			isa = PBXGroup;
 			children = (
 				94DD7633235CF8F30052AB19 /* GameViewController.swift */,
+				94ACB1CA236ED99500A9D929 /* AddQuestionViewController.swift */,
 				94DD7621235CEF8D0052AB19 /* ViewController.swift */,
+				9492C6EC236C379800C4A735 /* SettingsViewController.swift */,
 				94041155235D735900311D5F /* ResultsViewController.swift */,
 				941867D323603958000EEB7E /* FirstAnimationViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		94EB92D02370A46A00C7C91E /* GameFacade */ = {
+			isa = PBXGroup;
+			children = (
+				94A21152236F635C0091E6CC /* FacadeGame.swift */,
+			);
+			path = GameFacade;
+			sourceTree = "<group>";
+		};
+		94EB92D12370A47D00C7C91E /* BuilderGame */ = {
+			isa = PBXGroup;
+			children = (
+				94A21150236F3A920091E6CC /* Builder.swift */,
+			);
+			path = BuilderGame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,17 +280,27 @@
 				941867CD2360363D000EEB7E /* MainCoordinator.swift in Sources */,
 				94041161235DA02300311D5F /* CareTracker.swift in Sources */,
 				94DD7622235CEF8D0052AB19 /* ViewController.swift in Sources */,
+				9492C6F6236C3EE000C4A735 /* ConsistentlyQuestionStrategy.swift in Sources */,
 				9404115A235D754800311D5F /* GameSession.swift in Sources */,
+				94ACB1CD236EDC1300A9D929 /* AddQuestionCell.swift in Sources */,
 				941867D12360364C000EEB7E /* Storyboarded.swift in Sources */,
 				941867D22360364C000EEB7E /* Coordinator.swift in Sources */,
+				94A21153236F635C0091E6CC /* FacadeGame.swift in Sources */,
+				9492C6F4236C3E9E00C4A735 /* CreateQuestionArray.swift in Sources */,
+				9492C6ED236C379800C4A735 /* SettingsViewController.swift in Sources */,
+				947CC9B9236EAF4100BAE475 /* Observable.swift in Sources */,
+				9492C6EF236C3B2800C4A735 /* GameDifficulty.swift in Sources */,
 				941867D423603958000EEB7E /* FirstAnimationViewController.swift in Sources */,
 				94DD7632235CF15C0052AB19 /* Question.swift in Sources */,
+				9492C6F9236C3FAB00C4A735 /* ScatterQuestionStrategy.swift in Sources */,
 				9404115F235D9ADF00311D5F /* GameResults.swift in Sources */,
+				94ACB1CB236ED99500A9D929 /* AddQuestionViewController.swift in Sources */,
 				94DD761E235CEF8D0052AB19 /* AppDelegate.swift in Sources */,
 				9404115D235D759300311D5F /* ResultCell.swift in Sources */,
 				94DD7620235CEF8D0052AB19 /* SceneDelegate.swift in Sources */,
 				94041158235D753A00311D5F /* GameSingleton.swift in Sources */,
 				94041156235D735900311D5F /* ResultsViewController.swift in Sources */,
+				94A21151236F3A920091E6CC /* Builder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

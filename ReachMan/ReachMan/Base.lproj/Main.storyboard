@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -66,6 +66,209 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="115.84821428571428"/>
+        </scene>
+        <!--Add Question View Controller-->
+        <scene sceneID="k6H-fm-jFP">
+            <objects>
+                <viewController storyboardIdentifier="AddQuestionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5Te-wR-Ebt" customClass="AddQuestionViewController" customModule="ReachMan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lRD-4F-ca5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V2s-ZT-pEN">
+                                <rect key="frame" x="13" y="58" width="388" height="437"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="437" id="fgr-by-a3J"/>
+                                    <constraint firstAttribute="width" constant="388" id="ytd-Da-rlH"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddQuestionCell" rowHeight="229" id="Ytm-vg-z2N" customClass="AddQuestionCell" customModule="ReachMan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="388" height="229"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ytm-vg-z2N" id="W3k-Hf-8Ds">
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="229"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Текст вопроса" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1h1-cW-PJk">
+                                                    <rect key="frame" x="20" y="10" width="345" height="38"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="345" id="xVE-NL-qnH"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ответ 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCP-57-h5E">
+                                                    <rect key="frame" x="204" y="77" width="150" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="4Oo-Ql-ehA"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="yOi-D9-sMV"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ответ 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7mO-03-7b2">
+                                                    <rect key="frame" x="20" y="141" width="150" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="40S-RL-h7y"/>
+                                                        <constraint firstAttribute="height" constant="35" id="jqd-SB-rd7"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ответ 4" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ba2-dT-a4z">
+                                                    <rect key="frame" x="208" y="141" width="150" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="9VX-ZJ-rbv"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="zbV-lv-gtE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="номер правильного ответа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gEv-BR-Yi0">
+                                                    <rect key="frame" x="100" y="188" width="209.5" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="2fW-VM-qGm"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="sJV-5j-jyh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ответ 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pae-2m-oEa">
+                                                    <rect key="frame" x="20" y="77" width="150" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="99e-HY-Ifn"/>
+                                                        <constraint firstAttribute="height" constant="35" id="gI3-th-0m7"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dCP-57-h5E" firstAttribute="top" secondItem="1h1-cW-PJk" secondAttribute="bottom" constant="29" id="1cR-gY-FjO"/>
+                                                <constraint firstItem="7mO-03-7b2" firstAttribute="leading" secondItem="W3k-Hf-8Ds" secondAttribute="leadingMargin" id="1qt-Kl-797"/>
+                                                <constraint firstItem="ba2-dT-a4z" firstAttribute="top" secondItem="dCP-57-h5E" secondAttribute="bottom" constant="29" id="74X-Bd-gnI"/>
+                                                <constraint firstItem="7mO-03-7b2" firstAttribute="top" secondItem="Pae-2m-oEa" secondAttribute="bottom" constant="29" id="75V-q2-6sQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="dCP-57-h5E" secondAttribute="trailing" constant="34" id="7hW-vs-Pvj"/>
+                                                <constraint firstItem="1h1-cW-PJk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W3k-Hf-8Ds" secondAttribute="leading" symbolic="YES" id="Cq9-pk-56P"/>
+                                                <constraint firstItem="gEv-BR-Yi0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W3k-Hf-8Ds" secondAttribute="leadingMargin" id="DWo-cn-dLV"/>
+                                                <constraint firstItem="gEv-BR-Yi0" firstAttribute="bottom" secondItem="W3k-Hf-8Ds" secondAttribute="bottomMargin" id="GcM-Qp-EHC"/>
+                                                <constraint firstItem="Pae-2m-oEa" firstAttribute="top" secondItem="1h1-cW-PJk" secondAttribute="bottom" constant="29" id="JwB-Nu-RnK"/>
+                                                <constraint firstItem="Pae-2m-oEa" firstAttribute="leading" secondItem="W3k-Hf-8Ds" secondAttribute="leading" constant="20" id="awP-Rg-A7c"/>
+                                                <constraint firstAttribute="trailing" secondItem="gEv-BR-Yi0" secondAttribute="trailing" constant="78.5" id="pRG-Ce-U5b"/>
+                                                <constraint firstItem="ba2-dT-a4z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7mO-03-7b2" secondAttribute="trailing" symbolic="YES" id="pZu-ga-zmF"/>
+                                                <constraint firstItem="dCP-57-h5E" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pae-2m-oEa" secondAttribute="trailing" symbolic="YES" id="peU-ig-yPh"/>
+                                                <constraint firstAttribute="trailing" secondItem="1h1-cW-PJk" secondAttribute="trailing" constant="23" id="scN-kd-BHr"/>
+                                                <constraint firstAttribute="trailing" secondItem="ba2-dT-a4z" secondAttribute="trailing" constant="30" id="xTN-9H-30b"/>
+                                                <constraint firstItem="gEv-BR-Yi0" firstAttribute="top" secondItem="7mO-03-7b2" secondAttribute="bottom" constant="12" id="yQ7-Jo-8Tx"/>
+                                                <constraint firstItem="1h1-cW-PJk" firstAttribute="top" secondItem="W3k-Hf-8Ds" secondAttribute="top" constant="10" id="z54-S4-0gP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="firstAnswerTextField" destination="Pae-2m-oEa" id="I0h-NG-o9P"/>
+                                            <outlet property="fourthAnswerTextField" destination="ba2-dT-a4z" id="N1b-TJ-fYL"/>
+                                            <outlet property="numberOfCorrectAnswer" destination="gEv-BR-Yi0" id="Mca-7e-DKs"/>
+                                            <outlet property="questionTextField" destination="1h1-cW-PJk" id="neI-TV-s4M"/>
+                                            <outlet property="secondAnswerTextField" destination="dCP-57-h5E" id="Ssk-0Y-Evf"/>
+                                            <outlet property="thirdAnswerTextField" destination="7mO-03-7b2" id="an6-69-fjd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHJ-Mb-duJ">
+                                <rect key="frame" x="213" y="503" width="175" height="30"/>
+                                <state key="normal" title="Добавить ещё вопросов"/>
+                                <connections>
+                                    <action selector="addMoreQuestionsButton:" destination="5Te-wR-Ebt" eventType="touchUpInside" id="hWz-ac-F3K"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Huj-uy-4zu">
+                                <rect key="frame" x="34" y="612" width="360" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="360" id="zA7-Dk-0oe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Добавить  все вопросы в игру"/>
+                                <connections>
+                                    <action selector="addAllQuestionsInGame:" destination="5Te-wR-Ebt" eventType="touchUpInside" id="qHD-j8-ArP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tYa-w1-fov" firstAttribute="trailing" secondItem="nHJ-Mb-duJ" secondAttribute="trailing" constant="26" id="3lD-Gr-baX"/>
+                            <constraint firstItem="Huj-uy-4zu" firstAttribute="top" secondItem="nHJ-Mb-duJ" secondAttribute="bottom" constant="79" id="G6U-3k-Z5K"/>
+                            <constraint firstItem="tYa-w1-fov" firstAttribute="trailing" secondItem="Huj-uy-4zu" secondAttribute="trailing" constant="20" id="VhI-Id-ujG"/>
+                            <constraint firstItem="Huj-uy-4zu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tYa-w1-fov" secondAttribute="leading" id="ivv-If-QUw"/>
+                            <constraint firstItem="nHJ-Mb-duJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tYa-w1-fov" secondAttribute="leading" id="nIt-gy-oqu"/>
+                            <constraint firstItem="tYa-w1-fov" firstAttribute="trailing" secondItem="V2s-ZT-pEN" secondAttribute="trailing" constant="13" id="noC-wV-hkq"/>
+                            <constraint firstItem="nHJ-Mb-duJ" firstAttribute="top" secondItem="V2s-ZT-pEN" secondAttribute="bottom" constant="8" id="oje-KI-4ld"/>
+                            <constraint firstItem="V2s-ZT-pEN" firstAttribute="top" secondItem="tYa-w1-fov" secondAttribute="top" constant="14" id="vNw-ga-E3e"/>
+                            <constraint firstItem="V2s-ZT-pEN" firstAttribute="leading" secondItem="tYa-w1-fov" secondAttribute="leading" constant="13" id="xkh-O9-YUP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tYa-w1-fov"/>
+                    </view>
+                    <connections>
+                        <outlet property="addQuestionsTableView" destination="V2s-ZT-pEN" id="cpq-SQ-qhY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t3I-EP-JAM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866.6666666666667" y="260.49107142857144"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="m3P-Kf-bQ9">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="o0u-at-1vx" customClass="SettingsViewController" customModule="ReachMan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yq4-4C-wJO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="allScreen" translatesAutoresizingMaskIntoConstraints="NO" id="ShH-Bs-52f">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4Ws-Of-SNK">
+                                <rect key="frame" x="57" y="384" width="321" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Последовательно"/>
+                                    <segment title="В разброс"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeGameDifficulty:" destination="o0u-at-1vx" eventType="valueChanged" id="sd3-7t-Wjh"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Выберите вариант игры" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFJ-lM-ZY4">
+                                <rect key="frame" x="101" y="103" width="212" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Как будут идти вопросы? " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPl-FF-Ayw">
+                                <rect key="frame" x="108" y="175" width="218" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ShH-Bs-52f" secondAttribute="bottom" id="Hfa-PI-fGm"/>
+                            <constraint firstItem="ShH-Bs-52f" firstAttribute="leading" secondItem="The-kp-ZWQ" secondAttribute="leading" id="hiK-CS-YP5"/>
+                            <constraint firstItem="The-kp-ZWQ" firstAttribute="trailing" secondItem="ShH-Bs-52f" secondAttribute="trailing" id="mpu-MO-Iib"/>
+                            <constraint firstItem="ShH-Bs-52f" firstAttribute="top" secondItem="yq4-4C-wJO" secondAttribute="top" id="o4j-7M-2sx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="The-kp-ZWQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="gameDifficultyControl" destination="4Ws-Of-SNK" id="0wU-MC-Wwd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FXl-bP-6p7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1856.521739130435" y="-570.53571428571422"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="9LZ-rh-Ifz">
@@ -151,6 +354,14 @@
                                     <action selector="deleteTwoAnswers:" destination="4A0-qn-KSC" eventType="touchUpInside" id="a4I-v0-Jty"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUZ-R5-LcH">
+                                <rect key="frame" x="31" y="831" width="363" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -163,6 +374,7 @@
                     </view>
                     <connections>
                         <outlet property="callToFriendButton" destination="DaR-KM-uos" id="BWk-it-aK1"/>
+                        <outlet property="countOfPassesQuestionLabel" destination="UUZ-R5-LcH" id="v3I-AE-fmz"/>
                         <outlet property="fiftyFiftyButton" destination="cvP-uG-saa" id="2e0-BD-WnL"/>
                         <outlet property="firstAnswerButton" destination="OAg-ZL-upq" id="73Q-Cq-4nX"/>
                         <outlet property="fourthAnswerButton" destination="r7U-Jh-zb7" id="nu5-VV-RXB"/>
@@ -175,7 +387,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OAi-Rx-Oxh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2008.6956521739132" y="-213.61607142857142"/>
+            <point key="canvasLocation" x="2779.7101449275365" y="-151.33928571428569"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="yRr-gd-NDj">
@@ -273,7 +485,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fip-VV-h6a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1939.1304347826087" y="551.11607142857144"/>
+            <point key="canvasLocation" x="2781" y="668"/>
         </scene>
     </scenes>
     <resources>

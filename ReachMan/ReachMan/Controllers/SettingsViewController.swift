@@ -8,23 +8,31 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
-
+class SettingsViewController: UIViewController,Storyboarded {
+    @IBOutlet var gameDifficultyControl: UISegmentedControl!
+    
+    weak var coordinator: MainCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        checkDiffuculty()
+        coordinator?.navigationController.navigationBar.isHidden = false
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func checkDiffuculty() {
+        if GameSingleton.shared.gameDifficulty == .scatter {
+            gameDifficultyControl.selectedSegmentIndex = 1
+        }
     }
-    */
-
+    
+    @IBAction func changeGameDifficulty(_ sender: Any) {
+        switch self.gameDifficultyControl.selectedSegmentIndex {
+        case 0:
+            GameSingleton.shared.gameDifficulty = .consistently
+        case 1:
+            GameSingleton.shared.gameDifficulty = .scatter
+        default:
+            GameSingleton.shared.gameDifficulty = .consistently
+        }
+    }
 }

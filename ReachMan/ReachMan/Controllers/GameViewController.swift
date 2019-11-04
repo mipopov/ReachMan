@@ -12,11 +12,9 @@ protocol GameDelegate {
     func didEndGame(with result:Int, allNumberOfQuestion: Int)
 }
 
-class GameViewController: UIViewController,Storyboarded {
-    var gameDelegate: GameDelegate?
-    
+class GameViewController: UIViewController, Storyboarded {
+    @IBOutlet var countOfPassesQuestionLabel: UILabel!
     @IBOutlet var questionLabel: UILabel!
-    
     @IBOutlet var callToFriendButton: UIButton!
     @IBOutlet var fiftyFiftyButton: UIButton!
     @IBOutlet var peopleHelpButton: UIButton!
@@ -28,32 +26,27 @@ class GameViewController: UIViewController,Storyboarded {
     @IBOutlet var fourthAnswerButton: UIButton!
     
     weak var coordinator: MainCoordinator?
+    var gameDelegate: GameDelegate?
+    var facadeGame:FacadeGame!
     
-    var questions:[Question] = [
-        
-        Question(questionText: "Что растёт в огороде?", answers: Answers(firstAnswer: "Лук", secondAnswer: "Пистолет", thirdAnswer: "Пулемёт", fourthAnswer: "Луна", correctNumberOfQuestion: 1), questionNumber: 1, fiftyFifty: false, peopleHelp: false, tryToError: false, callToFriend: false, countOfMoney: 500),
-        
-        Question(questionText: "Что делит угол пополам?", answers: Answers(firstAnswer: "Биссектриса", secondAnswer: "Триссектриса", thirdAnswer: "Медиана", fourthAnswer: "Ты", correctNumberOfQuestion: 1), questionNumber: 2, fiftyFifty: false, peopleHelp: false, tryToError: false, callToFriend: false, countOfMoney: 1000),
-        
-        Question(questionText: "О чём писал Грибоедов, отмечая, что он 'нам сладок и приятен' ? ", answers: Answers(firstAnswer: "Дух купечества", secondAnswer: "Дым Отечества", thirdAnswer: "Дар пророчества", fourthAnswer: "Пыл девичества", correctNumberOfQuestion: 2), questionNumber: 3, fiftyFifty: false, peopleHelp: false, tryToError: false, callToFriend: false, countOfMoney: 2000),
-        
-        Question(questionText: "Какого персонажа нет в известной считалке «На золотом крыльце сидели?»", answers: Answers(firstAnswer: "Сапожника", secondAnswer: "Короля", thirdAnswer: "Кузнеца", fourthAnswer: "Портного", correctNumberOfQuestion: 3), questionNumber: 4, fiftyFifty: false, peopleHelp: false, tryToError: false, callToFriend: false,countOfMoney: 4000),
-        
-        Question(questionText: "Что такое десница? ", answers: Answers(firstAnswer: "Бровь", secondAnswer: "Рука ", thirdAnswer: "Шея", fourthAnswer: "Глаз", correctNumberOfQuestion: 2), questionNumber: 5, fiftyFifty: false, peopleHelp: false, tryToError: false, callToFriend: false, countOfMoney: 8000),
-        
-        Question(questionText: "Как назывался каменный монолит, на котором установлен памятник Петру I в Санкт-Петербурге? ", answers: Answers(firstAnswer: "Дом-камень", secondAnswer: "Разрыв-камень", thirdAnswer: "Гром-камень", fourthAnswer: "Гора-камень", correctNumberOfQuestion: 4),
-                 questionNumber: 6, fiftyFifty: false, peopleHelp: false, tryToError: false, callToFriend: false, countOfMoney: 16_000),
-        Question(questionText: "Какое животное имеет второе название — кугуар?", answers: Answers(firstAnswer: "Оцелот", secondAnswer: "Леопард", thirdAnswer: "Пума", fourthAnswer: "Пантера", correctNumberOfQuestion: 3), questionNumber: 7, fiftyFifty: false, peopleHelp: false, tryToError: false, callToFriend: false, countOfMoney: 32_000)
-    ]
-    
-    var questionNumber = 0
-    var trytoErrorFlag = false
+    var questions = [Question]()
+    var questionNumber = Observable<Int>(0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         coordinator?.navigationController.navigationBar.isHidden = false
+        questions = facadeGame.createQuestions()
         
+        setupTextFields()
+        
+        self.questionNumber.addObserver(self, removeIfExists: true, options: [.new, .initial]) {[weak self] (number, _) in
+            guard let self = self else {return}
+            self.countOfPassesQuestionLabel.text = "Вопрос \(number + 1) из \(self.questions.count + 1)"
+        }
+    }
+    
+    
+    private func setupTextFields(){
         self.questionLabel.text = questions[0].questionText
         self.firstAnswerButton.setTitle(questions[0].answers.firstAnswer, for: .normal)
         self.secondAnswerButton.setTitle(questions[0].answers.secondAnswer, for: .normal)
@@ -64,17 +57,10 @@ class GameViewController: UIViewController,Storyboarded {
         self.secondAnswerButton.addTarget(self, action: #selector(tapOnSecondButton), for: .touchUpInside)
         self.thirdAnswerButton.addTarget(self, action: #selector(tapOnThirdButton), for: .touchUpInside)
         self.fourthAnswerButton.addTarget(self, action: #selector(tapOnfourthButton), for: .touchUpInside)
-
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        coordinator?.navigationController.navigationBar.isHidden = false
-    }
-    
- 
     @IBAction func doubleChance(_ sender: Any) {
-        trytoErrorFlag = true
-        questions[questionNumber].tryToError = true
+        facadeGame.trytoErrorFlag = true
         self.tryToErrorButton.alpha = 0.5
         self.tryToErrorButton.isEnabled = false
     }
@@ -82,8 +68,7 @@ class GameViewController: UIViewController,Storyboarded {
     @IBAction func deleteTwoAnswers(_ sender: Any) {
         self.fiftyFiftyButton.alpha = 0.5
         self.fiftyFiftyButton.isEnabled = false
-        questions[questionNumber].fiftyFifty = true
-        let correctAnswer = questions[questionNumber].answers.correctNumberOfQuestion
+        let correctAnswer = questions[questionNumber.value].answers.correctNumberOfQuestion
         hiddenButtons(with: correctAnswer)
         
     }
@@ -114,15 +99,15 @@ class GameViewController: UIViewController,Storyboarded {
     }
     
     @objc func tapOnfirstButton() {
-        let correctAnswer = questions[questionNumber].answers.correctNumberOfQuestion
+        let correctAnswer = questions[questionNumber.value].answers.correctNumberOfQuestion
         if correctAnswer == 1 {
-            questionNumber += 1
-            self.switchQuestion(with: questionNumber)
+            questionNumber.value += 1
+            self.switchQuestion(with: questionNumber.value)
         } else {
-            if trytoErrorFlag == true {
+            if facadeGame.trytoErrorFlag == true {
                 self.firstAnswerButton.backgroundColor = .red
                 self.firstAnswerButton.isEnabled = false
-                self.trytoErrorFlag = false
+                facadeGame.trytoErrorFlag = false
             } else {
                 self.gameOver()
             }
@@ -130,30 +115,31 @@ class GameViewController: UIViewController,Storyboarded {
     }
     
     @objc func tapOnSecondButton() {
-        let correctAnswer = questions[questionNumber].answers.correctNumberOfQuestion
+        let correctAnswer = questions[questionNumber.value].answers.correctNumberOfQuestion
         if correctAnswer == 2 {
-            questionNumber += 1
-            self.switchQuestion(with: questionNumber)
+            questionNumber.value += 1
+            self.switchQuestion(with: questionNumber.value)
         } else {
-            if trytoErrorFlag == true {
+            if facadeGame.trytoErrorFlag == true {
                 self.secondAnswerButton.backgroundColor = .red
                 self.secondAnswerButton.isEnabled = false
-                self.trytoErrorFlag = false
+                facadeGame.trytoErrorFlag = false
             } else {
                 self.gameOver()
             }
         }
     }
+    
     @objc func tapOnThirdButton() {
-        let correctAnswer = questions[questionNumber].answers.correctNumberOfQuestion
+        let correctAnswer = questions[questionNumber.value].answers.correctNumberOfQuestion
         if correctAnswer == 3 {
-            questionNumber += 1
-            self.switchQuestion(with: questionNumber)
+            questionNumber.value += 1
+            self.switchQuestion(with: questionNumber.value)
         } else {
-            if trytoErrorFlag == true {
+            if facadeGame.trytoErrorFlag == true {
                 self.thirdAnswerButton.backgroundColor = .red
                 self.thirdAnswerButton.isEnabled = false
-                self.trytoErrorFlag = false
+                facadeGame.trytoErrorFlag = false
             } else {
                 self.gameOver()
             }
@@ -161,15 +147,15 @@ class GameViewController: UIViewController,Storyboarded {
     }
     
     @objc func tapOnfourthButton() {
-        let correctAnswer = questions[questionNumber].answers.correctNumberOfQuestion
+        let correctAnswer = questions[questionNumber.value].answers.correctNumberOfQuestion
         if correctAnswer == 4 {
-            questionNumber += 1
-            self.switchQuestion(with: questionNumber)
+            questionNumber.value += 1
+            self.switchQuestion(with: questionNumber.value)
         } else {
-            if trytoErrorFlag == true {
+            if facadeGame.trytoErrorFlag == true {
                 self.fourthAnswerButton.backgroundColor = .red
                 self.fourthAnswerButton.isEnabled = false
-                self.trytoErrorFlag = false
+                facadeGame.trytoErrorFlag = false
             } else {
                 self.gameOver()
             }
@@ -177,8 +163,8 @@ class GameViewController: UIViewController,Storyboarded {
     }
     
     private func switchQuestion(with questionNumber: Int) {
-        if self.trytoErrorFlag == true {
-            self.trytoErrorFlag = false
+        if facadeGame.trytoErrorFlag == true {
+            facadeGame.trytoErrorFlag = false
         }
         
         self.firstAnswerButton.isHidden = false
@@ -210,7 +196,7 @@ class GameViewController: UIViewController,Storyboarded {
     }
     
     private func winGame() {
-        self.gameDelegate?.didEndGame(with: questionNumber, allNumberOfQuestion: questions.count)
+        self.gameDelegate?.didEndGame(with: questionNumber.value, allNumberOfQuestion: questions.count)
         
         self.firstAnswerButton.alpha = 0
         self.secondAnswerButton.alpha = 0
@@ -222,12 +208,12 @@ class GameViewController: UIViewController,Storyboarded {
         self.tryToErrorButton.alpha = 0
         
         self.view.backgroundColor = .red
-        self.questionLabel.text = "ТЫ ВЫИГРАЛЛЛ !!! Твой результат - \(self.questionNumber) и твой выигрыш равен \(self.questions[self.questionNumber - 1].countOfMoney)"
+        self.questionLabel.text = "ТЫ ВЫИГРАЛЛЛ !!! Твой результат - \(self.questionNumber.value + 1)"
         
     }
     
     private func gameOver() {
-        self.gameDelegate?.didEndGame(with: questionNumber, allNumberOfQuestion: questions.count)
+        self.gameDelegate?.didEndGame(with: questionNumber.value, allNumberOfQuestion: questions.count)
         
         UIView.animate(withDuration: 1) {
             self.firstAnswerButton.alpha = 0
@@ -240,7 +226,7 @@ class GameViewController: UIViewController,Storyboarded {
             self.tryToErrorButton.alpha = 0
             
             self.view.backgroundColor = .red
-            self.questionLabel.text = "Твой результат \(self.questionNumber)            Твой выигрыш равен \(self.questions[self.questionNumber].countOfMoney)"
+            self.questionLabel.text = "Твой результат \(self.questionNumber.value + 1)"
         }
     }
 }

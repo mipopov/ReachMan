@@ -31,6 +31,7 @@ class MainCoordinator: Coordinator {
         let gameScreen = GameViewController.instantiate()
         gameScreen.gameDelegate = gameDelegate
         gameScreen.coordinator = self
+        gameScreen.facadeGame = FacadeGame()
         navigationController.pushViewController(gameScreen, animated: true)
     }
     
@@ -43,5 +44,11 @@ class MainCoordinator: Coordinator {
         let settingScreen = SettingsViewController.instantiate()
         settingScreen.coordinator = self
         navigationController.pushViewController(settingScreen, animated: true)
+    }
+    
+    func addQuestion() {
+        let addQuestionScreen = AddQuestionViewController.instantiate()
+        addQuestionScreen.coordinator = self
+        navigationController.pushViewController(addQuestionScreen, animated: true)
     }
 }

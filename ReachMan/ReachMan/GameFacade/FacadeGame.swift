@@ -10,11 +10,12 @@ import Foundation
 import UIKit
 
 class FacadeGame {
-    public var questions:[Question] = []
+    public var trytoErrorFlag:Bool
     
     init() {
-        self.questions = createQuestions()
+        trytoErrorFlag = false
     }
+    
     private var selectStrategy:CreateQuestionArray {
         switch GameSingleton.shared.gameDifficulty {
         case .consistently:
@@ -24,7 +25,9 @@ class FacadeGame {
         }
     }
     
-    private func createQuestions() -> [Question] {
+    func createQuestions() -> [Question] {
         return selectStrategy.createQuestions()
     }
+    
+    
 }

@@ -11,6 +11,7 @@ import Foundation
 class GameSingleton {
     static let shared = GameSingleton()
     var games: GameSession?
+    var gameDifficulty: GameDifficulty = .consistently
     
     var results: [GameResults] {
 
