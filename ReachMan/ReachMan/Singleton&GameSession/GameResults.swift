@@ -14,8 +14,8 @@ class GameResults: Codable {
     let allnumberOfQuestion: Int
     
     init(questionPercent: Double, numberOfCorrectAnswers: Int, allnumberOfQuestion: Int) {
-        self.allnumberOfQuestion = allnumberOfQuestion
-        self.numberOfCorrectAnswers = numberOfCorrectAnswers
+        self.allnumberOfQuestion = allnumberOfQuestion + 1
+        self.numberOfCorrectAnswers = numberOfCorrectAnswers + 1
         self.questionPercent = questionPercent
     }
     

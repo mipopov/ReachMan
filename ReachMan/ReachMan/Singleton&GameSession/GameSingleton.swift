@@ -34,7 +34,6 @@ class GameSingleton {
     }
     
     private init() {
-        self.results = self.careTracker.retrieveGames().reversed()
-        
+        self.results = self.careTracker.retrieveGames()
     }
 }

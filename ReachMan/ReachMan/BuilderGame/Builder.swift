@@ -18,7 +18,7 @@ class Builder {
     private(set) var correctAnswer: String = ""
     
     func build() -> Question {
-        return Question(questionText: textQuestion, answers:Answers(firstAnswer: firstAnswer, secondAnswer: secondAnswer, thirdAnswer: thirdAnswer, fourthAnswer: fourthAnswer, correctNumberOfQuestion: Int(correctAnswer) ?? 1), questionNumber: 1)
+        return Question(questionText: textQuestion,firstAnswer: firstAnswer, secondAnswer: secondAnswer, thirdAnswer: thirdAnswer, fourthAnswer: fourthAnswer, correctNumberOfQuestion: Int(correctAnswer) ?? 1)
     }
     func setFirstAnswer(_ text: String) {
         self.firstAnswer = text

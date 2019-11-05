@@ -27,6 +27,8 @@
 		94A21153236F635C0091E6CC /* FacadeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A21152236F635C0091E6CC /* FacadeGame.swift */; };
 		94ACB1CB236ED99500A9D929 /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ACB1CA236ED99500A9D929 /* AddQuestionViewController.swift */; };
 		94ACB1CD236EDC1300A9D929 /* AddQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ACB1CC236EDC1300A9D929 /* AddQuestionCell.swift */; };
+		94BB7F4223717ACD00C47C01 /* 12276.otf in Resources */ = {isa = PBXBuildFile; fileRef = 94BB7F4123717ACD00C47C01 /* 12276.otf */; };
+		94BB7F442371A34C00C47C01 /* CareTeckerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BB7F432371A34C00C47C01 /* CareTeckerQuestion.swift */; };
 		94DD761E235CEF8D0052AB19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DD761D235CEF8D0052AB19 /* AppDelegate.swift */; };
 		94DD7620235CEF8D0052AB19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DD761F235CEF8D0052AB19 /* SceneDelegate.swift */; };
 		94DD7622235CEF8D0052AB19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DD7621235CEF8D0052AB19 /* ViewController.swift */; };
@@ -58,6 +60,8 @@
 		94A21152236F635C0091E6CC /* FacadeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacadeGame.swift; sourceTree = "<group>"; };
 		94ACB1CA236ED99500A9D929 /* AddQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
 		94ACB1CC236EDC1300A9D929 /* AddQuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionCell.swift; sourceTree = "<group>"; };
+		94BB7F4123717ACD00C47C01 /* 12276.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 12276.otf; sourceTree = "<group>"; };
+		94BB7F432371A34C00C47C01 /* CareTeckerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareTeckerQuestion.swift; sourceTree = "<group>"; };
 		94DD761A235CEF8D0052AB19 /* ReachMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReachMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94DD761D235CEF8D0052AB19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94DD761F235CEF8D0052AB19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 				94041159235D754800311D5F /* GameSession.swift */,
 				9404115E235D9ADF00311D5F /* GameResults.swift */,
 				94041160235DA02300311D5F /* CareTracker.swift */,
+				94BB7F432371A34C00C47C01 /* CareTeckerQuestion.swift */,
 			);
 			path = "Singleton&GameSession";
 			sourceTree = "<group>";
@@ -137,6 +142,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		94BB7F40237179D500C47C01 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				94BB7F4123717ACD00C47C01 /* 12276.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		94DD7611235CEF8D0052AB19 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +183,7 @@
 				94ACB1CE236EDC1F00A9D929 /* Cell */,
 				94DD7635235CF9000052AB19 /* Controllers */,
 				94DD7626235CEF950052AB19 /* Assets.xcassets */,
+				94BB7F40237179D500C47C01 /* Font */,
 				94DD7628235CEF950052AB19 /* LaunchScreen.storyboard */,
 				94DD762B235CEF950052AB19 /* Info.plist */,
 			);
@@ -265,6 +279,7 @@
 			files = (
 				94DD762A235CEF950052AB19 /* LaunchScreen.storyboard in Resources */,
 				94DD7627235CEF950052AB19 /* Assets.xcassets in Resources */,
+				94BB7F4223717ACD00C47C01 /* 12276.otf in Resources */,
 				94DD7625235CEF8D0052AB19 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +299,7 @@
 				9404115A235D754800311D5F /* GameSession.swift in Sources */,
 				94ACB1CD236EDC1300A9D929 /* AddQuestionCell.swift in Sources */,
 				941867D12360364C000EEB7E /* Storyboarded.swift in Sources */,
+				94BB7F442371A34C00C47C01 /* CareTeckerQuestion.swift in Sources */,
 				941867D22360364C000EEB7E /* Coordinator.swift in Sources */,
 				94A21153236F635C0091E6CC /* FacadeGame.swift in Sources */,
 				9492C6F4236C3E9E00C4A735 /* CreateQuestionArray.swift in Sources */,

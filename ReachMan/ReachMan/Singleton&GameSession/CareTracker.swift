@@ -12,7 +12,7 @@ class CareTracker {
     private let encode = JSONEncoder()
     private let decode = JSONDecoder()
     
-    private let key = "games"
+    private let key = "reachManGames"
     
     func save(_ games: [GameResults]) {
         do {

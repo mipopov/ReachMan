@@ -48,10 +48,24 @@ class GameViewController: UIViewController, Storyboarded {
     
     private func setupTextFields(){
         self.questionLabel.text = questions[0].questionText
-        self.firstAnswerButton.setTitle(questions[0].answers.firstAnswer, for: .normal)
-        self.secondAnswerButton.setTitle(questions[0].answers.secondAnswer, for: .normal)
-        self.thirdAnswerButton.setTitle(questions[0].answers.thirdAnswer, for: .normal)
-        self.fourthAnswerButton.setTitle(questions[0].answers.fourthAnswer, for: .normal)
+        self.firstAnswerButton.setTitle(questions[0].firstAnswer, for: .normal)
+        self.secondAnswerButton.setTitle(questions[0].secondAnswer, for: .normal)
+        self.thirdAnswerButton.setTitle(questions[0].thirdAnswer, for: .normal)
+        self.fourthAnswerButton.setTitle(questions[0].fourthAnswer, for: .normal)
+        
+        self.firstAnswerButton.layer.cornerRadius = 10
+        self.secondAnswerButton.layer.cornerRadius = 10
+        self.thirdAnswerButton.layer.cornerRadius = 10
+        self.fourthAnswerButton.layer.cornerRadius = 10
+        
+        self.callToFriendButton.layer.cornerRadius = 10
+        self.fiftyFiftyButton.layer.cornerRadius = 10
+        self.peopleHelpButton.layer.cornerRadius = 10
+        self.tryToErrorButton.layer.cornerRadius = 10
+        
+        countOfPassesQuestionLabel.layer.cornerRadius = 10
+        countOfPassesQuestionLabel.clipsToBounds = true
+        countOfPassesQuestionLabel.textAlignment = .center
         
         self.firstAnswerButton.addTarget(self, action: #selector(tapOnfirstButton), for: .touchUpInside)
         self.secondAnswerButton.addTarget(self, action: #selector(tapOnSecondButton), for: .touchUpInside)
@@ -59,47 +73,43 @@ class GameViewController: UIViewController, Storyboarded {
         self.fourthAnswerButton.addTarget(self, action: #selector(tapOnfourthButton), for: .touchUpInside)
     }
     
+    @IBAction func helpOfHall(_ sender: Any) {
+        facadeGame.hallHelp(with: peopleHelpButton)
+        
+        let arrayOfAnswers = [1, 2, 3, 4]
+        guard let friendOpinionAnswer = arrayOfAnswers.randomElement() else {return}
+        
+        let alertController = UIAlertController(title: "Зал считает верный ответ под номером  \(friendOpinionAnswer)", message: "", preferredStyle: .alert)
+        let cancelButton = UIAlertAction(title: "Хорошо", style: .default)
+        alertController.addAction(cancelButton)
+        present(alertController, animated: true)
+        
+    }
+    
+    @IBAction func callFriend(_ sender: Any) {
+        facadeGame.callToFriend(with: callToFriendButton)
+        
+        let correctAnswer = questions[questionNumber.value].correctNumberOfQuestion
+        let alertController = UIAlertController(title: "Твой друг думает,что верный ответ под номером \(correctAnswer)", message: "", preferredStyle: .alert)
+        let cancelButton = UIAlertAction(title: "Хорошо", style: .default)
+        alertController.addAction(cancelButton)
+        present(alertController, animated: true)
+    }
+    
     @IBAction func doubleChance(_ sender: Any) {
         facadeGame.trytoErrorFlag = true
-        self.tryToErrorButton.alpha = 0.5
-        self.tryToErrorButton.isEnabled = false
+        facadeGame.doubleChance(with: tryToErrorButton)
     }
     
     @IBAction func deleteTwoAnswers(_ sender: Any) {
-        self.fiftyFiftyButton.alpha = 0.5
-        self.fiftyFiftyButton.isEnabled = false
-        let correctAnswer = questions[questionNumber.value].answers.correctNumberOfQuestion
-        hiddenButtons(with: correctAnswer)
-        
-    }
-    
-    private func hiddenButtons(with correctNumber:Int) {
-        var arrayOfAnswers = [1, 2, 3, 4]
-        arrayOfAnswers = arrayOfAnswers.filter({$0 != correctNumber})
-
-        guard let firstRandomNumber = arrayOfAnswers.randomElement() else {return}
-        arrayOfAnswers = arrayOfAnswers.filter({ $0 != firstRandomNumber})
-        
-        guard let secondRandomNumber = arrayOfAnswers.randomElement() else {return}
-
-        if firstRandomNumber == 1 || secondRandomNumber == 1{
-            self.firstAnswerButton.isHidden = true
-        }
-        if firstRandomNumber == 2 || secondRandomNumber == 2{
-            self.secondAnswerButton.isHidden = true
-        }
-        if firstRandomNumber == 3 || secondRandomNumber == 3{
-            self.thirdAnswerButton.isHidden = true
-        }
-        if firstRandomNumber == 4 || secondRandomNumber == 4{
-            self.fourthAnswerButton.isHidden = true
-        }
-        
+        let correctAnswer = questions[questionNumber.value].correctNumberOfQuestion
+        facadeGame.doubleChance(with: fiftyFiftyButton)
+        facadeGame.hideButtons(with: correctAnswer, firstAnswerButton: self.firstAnswerButton, secondAnswerButton: self.secondAnswerButton, thirdAnswerButton: self.thirdAnswerButton, fourthAnswerButton: self.fourthAnswerButton)
         
     }
     
     @objc func tapOnfirstButton() {
-        let correctAnswer = questions[questionNumber.value].answers.correctNumberOfQuestion
+        let correctAnswer = questions[questionNumber.value].correctNumberOfQuestion
         if correctAnswer == 1 {
             questionNumber.value += 1
             self.switchQuestion(with: questionNumber.value)
@@ -115,7 +125,7 @@ class GameViewController: UIViewController, Storyboarded {
     }
     
     @objc func tapOnSecondButton() {
-        let correctAnswer = questions[questionNumber.value].answers.correctNumberOfQuestion
+        let correctAnswer = questions[questionNumber.value].correctNumberOfQuestion
         if correctAnswer == 2 {
             questionNumber.value += 1
             self.switchQuestion(with: questionNumber.value)
@@ -131,7 +141,7 @@ class GameViewController: UIViewController, Storyboarded {
     }
     
     @objc func tapOnThirdButton() {
-        let correctAnswer = questions[questionNumber.value].answers.correctNumberOfQuestion
+        let correctAnswer = questions[questionNumber.value].correctNumberOfQuestion
         if correctAnswer == 3 {
             questionNumber.value += 1
             self.switchQuestion(with: questionNumber.value)
@@ -147,7 +157,7 @@ class GameViewController: UIViewController, Storyboarded {
     }
     
     @objc func tapOnfourthButton() {
-        let correctAnswer = questions[questionNumber.value].answers.correctNumberOfQuestion
+        let correctAnswer = questions[questionNumber.value].correctNumberOfQuestion
         if correctAnswer == 4 {
             questionNumber.value += 1
             self.switchQuestion(with: questionNumber.value)
@@ -188,10 +198,10 @@ class GameViewController: UIViewController, Storyboarded {
             
         } else {
             self.questionLabel.text = questions[questionNumber].questionText
-            self.firstAnswerButton.setTitle(questions[questionNumber].answers.firstAnswer, for: .normal)
-            self.secondAnswerButton.setTitle(questions[questionNumber].answers.secondAnswer, for: .normal)
-            self.thirdAnswerButton.setTitle(questions[questionNumber].answers.thirdAnswer, for: .normal)
-            self.fourthAnswerButton.setTitle(questions[questionNumber].answers.fourthAnswer, for: .normal)
+            self.firstAnswerButton.setTitle(questions[questionNumber].firstAnswer, for: .normal)
+            self.secondAnswerButton.setTitle(questions[questionNumber].secondAnswer, for: .normal)
+            self.thirdAnswerButton.setTitle(questions[questionNumber].thirdAnswer, for: .normal)
+            self.fourthAnswerButton.setTitle(questions[questionNumber].fourthAnswer, for: .normal)
         }
     }
     
@@ -206,6 +216,7 @@ class GameViewController: UIViewController, Storyboarded {
         self.fiftyFiftyButton.alpha = 0
         self.peopleHelpButton.alpha = 0
         self.tryToErrorButton.alpha = 0
+        self.countOfPassesQuestionLabel.alpha = 0
         
         self.view.backgroundColor = .red
         self.questionLabel.text = "ТЫ ВЫИГРАЛЛЛ !!! Твой результат - \(self.questionNumber.value + 1)"
@@ -224,7 +235,8 @@ class GameViewController: UIViewController, Storyboarded {
             self.fiftyFiftyButton.alpha = 0
             self.peopleHelpButton.alpha = 0
             self.tryToErrorButton.alpha = 0
-            
+            self.countOfPassesQuestionLabel.alpha = 0
+
             self.view.backgroundColor = .red
             self.questionLabel.text = "Твой результат \(self.questionNumber.value + 1)"
         }
